@@ -43,7 +43,7 @@ class cipher:
 key = generate_key()
 test = cipher(
     key,
-    "I want to suck Troys big peen :)",
+    "Input Value Here",
 )
 test2 = cipher(key, test.encrypt())
 print(f"key: {key}")
