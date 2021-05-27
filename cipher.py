@@ -2,23 +2,14 @@ import random
 import string
 import math
 
-alpha = (
-    "".join(
-        eval("string.{}".format(x)) for x in ["ascii_letters", "digits", "punctuation"]
-    )
-    + " "
-) * 2
+alpha = (string.ascii_letters + string.digits + string.punctuation + " ") * 2
 
 # generates and saves a key for the cipher
 def generate_key():
-    length = random.randint(40, 60)
     key = []
-    for x in range(length):
+    for x in range(random.randint(40, 60)):
         choose_value = random.randint(0, len(alpha) - 1)
-        if choose_value > 9:
-            key.append(alpha[choose_value])
-        else:
-            key.append(str(alpha.find(alpha[choose_value])))
+        key.append(alpha[choose_value])
     return "".join(key)
 
 
@@ -43,11 +34,9 @@ class cipher:
 key = generate_key()
 test = cipher(
     key,
-    "Input Value Here",
+    "1898w90du9efu()Eu90`88dfn9adf8n=`nfas'df",
 )
 test2 = cipher(key, test.encrypt())
 print(f"key: {key}")
 print(f"encrypted: {test.encrypt()}")
 print(f"decrypted: {test2.decrypt()}")
-
-# print(generate_key())
